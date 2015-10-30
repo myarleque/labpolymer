@@ -1,0 +1,90 @@
+<dom-module id="map-block">
+    <template>
+        <style>
+            :host {
+                display: block;
+                padding: 100px 0;
+                position: relative;
+                overflow: hidden;
+                min-height: 300px;
+            }
+
+            h4 {
+                font-size: 32px;
+            }
+
+            .location-card {
+                min-width: 400px;
+            }
+
+            .bottom-link {
+                color: inherit;
+            }
+
+            @media (min-width: 601px) {
+                .card-container {
+                    padding: 0;
+                }
+                .card-container h5 {
+                    margin-top: 0;
+                }
+            }
+            .bottom-link {
+                color: inherit;
+            }
+        </style>
+        <google-map class="fit" zoom="15" latitude="-12.072049" longitude="-76.9421604" styles="[[options]]" disable-zoom disable-default-ui>
+            <google-map-marker latitude="-14.0871322" longitude="-75.7357035"></google-map-marker>
+        </google-map>
+        <div class="container card-container relative layout horizontal center-center">
+            <div class="flex-3 hidden-xs"></div>
+            <paper-card class="flex-2">
+                <div class="paper-card-container location-card">
+                    <div class="card-content">
+                        <div class="title">
+                            <h4>Ubicación</h4>
+                        </div>
+                        <p>Auditorio Raul Porras Barrenechea</br>Ica</p>
+                    </div>
+                    <div class="card-actions">
+                        <a class="bottom-link" href="https://www.google.com.pe/maps/place/Facultad+de+Ingenieria+y+Arquitectura/@-14.0871322,-75.7357035,17z/" target="_blank">
+                            <paper-button on-tap="readMore">Ir</paper-button>
+                        </a>
+                    </div>
+                </div>
+            </paper-card>
+            <div class="flex hidden-xs"></div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'map-block',
+        properties: {
+            options: String
+        },
+        attached: function() {
+            this.options = [{
+                stylers: [{
+                    'lightness': 40
+                }, {
+                    'visibility': 'on'
+                }, {
+                    'gamma': 0.9
+                }, {
+                    'weight': 0.4
+                }]
+            }, {
+                'elementType': 'labels',
+                'stylers': [{
+                    'visibility': 'on'
+                }]
+            }, {
+                'featureType': 'water',
+                'stylers': [{
+                    'color': '#5dc7ff'
+                }]
+            }];
+        }
+    });
+</script>
