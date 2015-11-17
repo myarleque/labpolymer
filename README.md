@@ -1,5 +1,3 @@
-# techicaday15
-techicaday15
+# lab polymer
+lab polymer
 
-
-URL : https://techicaday.firebaseapp.com/
